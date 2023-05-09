@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Persistance\Wallet_App_Backend.Infrastructure.csproj" />
     <ProjectReference Include="..\Wallet_App_Backend.Application\Wallet_App_Backend.Application.csproj" />
   </ItemGroup>
 

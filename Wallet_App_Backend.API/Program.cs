@@ -1,6 +1,9 @@
 using System.Reflection;
+using System.Runtime.CompilerServices;
+using Wallet_App_Backend.Application;
 using Wallet_App_Backend.Application.Common.Mappings;
 using Wallet_App_Backend.Application.Interfaces;
+using Wallet_App_Backend.Infrastructure;
 
 internal class Program
 {
@@ -8,12 +11,15 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+        builder.Services.AddApplication();
+        builder.Services.AddPersistence(builder.Configuration);
 
         builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        
 
         builder.Services.AddAutoMapper(config =>
         {
@@ -23,7 +29,6 @@ internal class Program
 
         var app = builder.Build();
 
-// Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
