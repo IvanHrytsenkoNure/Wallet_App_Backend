@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Wallet_App_Backend.Application\Wallet_App_Backend.Application.csproj" />
+    <ProjectReference Include="..\Wallet_App_Backend.Domain\Wallet_App_Backend.Data.csproj" />
   </ItemGroup>
 
 </Project>
