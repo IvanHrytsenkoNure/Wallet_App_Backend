@@ -1,18 +1,19 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using Microsoft.EntityFrameworkCore;
 using Wallet_App_Backend.API.Middleware;
 using Wallet_App_Backend.Application;
 using Wallet_App_Backend.Application.Common.Mappings;
 using Wallet_App_Backend.Application.Interfaces;
 using Wallet_App_Backend.Infrastructure;
+using Wallet_App_Backend.Infrastructure.Persistence;
 
 internal class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-
-
+        
         builder.Services.AddApplication(builder.Configuration);
         builder.Services.AddPersistence(builder.Configuration);
 
@@ -40,6 +41,8 @@ internal class Program
         app.UseHttpsRedirection();
 
         app.MapControllers();
+
+        await app.SeedSampleDataAsync();
 
         app.Run();
     }

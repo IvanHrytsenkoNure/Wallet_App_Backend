@@ -6,8 +6,8 @@ namespace Wallet_App_Backend.Data.Common
     {
         [Key]
         public T Id { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime? Modified { get; set; }
+        public DateTime Created { get; set; } = DateTime.UtcNow;
+        public DateTime? Modified { get; set; } = DateTime.UtcNow;
 
 
     }

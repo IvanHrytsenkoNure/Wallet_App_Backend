@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wallet_App_Backend.Infrastructure.Persistence
+namespace Wallet_App_Backend.Data
 {
-    internal class StoreDbContextSeed
+    public static class Constants
     {
+        public const short MaxCardLimit = 1500;
+
     }
 }

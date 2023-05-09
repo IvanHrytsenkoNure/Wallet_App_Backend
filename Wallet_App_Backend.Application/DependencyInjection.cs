@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
+using Wallet_App_Backend.Application.Common.Behaviors;
 
 namespace Wallet_App_Backend.Application
 {
@@ -13,6 +14,8 @@ namespace Wallet_App_Backend.Application
             this IServiceCollection services, IConfiguration configuration)
         {
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+            services.AddTransient(typeof(IPipelineBehavior<,>),
+                typeof(ValidationBehavior<,>));
             services
                 .AddValidatorsFromAssemblies(new[] { Assembly.GetExecutingAssembly() });
 

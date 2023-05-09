@@ -1,7 +1,10 @@
-﻿using System.Net;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Net;
+using System.Text;
 using System.Text.Json;
 using FluentValidation;
 using Wallet_App_Backend.Application.Common.Exceptions;
+using ValidationException = FluentValidation.ValidationException;
 
 namespace Wallet_App_Backend.API.Middleware
 {
@@ -27,26 +30,39 @@ namespace Wallet_App_Backend.API.Middleware
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             var code = HttpStatusCode.InternalServerError;
-            var result = string.Empty;
-            switch(exception)
+            string message;
+
+            switch (exception)
             {
                 case ValidationException validationException:
                     code = HttpStatusCode.BadRequest;
-                    result = JsonSerializer.Serialize(validationException.Errors);
+                    message = BuildErrorMessage(validationException);
                     break;
                 case NotFoundException:
                     code = HttpStatusCode.NotFound;
+                    message = exception.Message;
+                    break;
+                default:
+                    message = exception.Message;
                     break;
             }
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)code;
 
-            if (result == string.Empty)
+
+            return context.Response.WriteAsync(JsonSerializer.Serialize(new {error = message}));
+        }
+
+        protected string BuildErrorMessage(ValidationException e)
+        {
+            var sb = new StringBuilder();
+            foreach (var error in e.Errors)
             {
-                result = JsonSerializer.Serialize(new { error = exception.Message });
+                sb.Append(error.ErrorMessage);
+                sb.Append(System.Environment.NewLine);
             }
 
-            return context.Response.WriteAsync(result);
+            return sb.ToString();
         }
     }
 }
