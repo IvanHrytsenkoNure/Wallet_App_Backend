@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using Wallet_App_Backend.API.Middleware;
 using Wallet_App_Backend.Application;
 using Wallet_App_Backend.Application.Common.Mappings;
 using Wallet_App_Backend.Application.Interfaces;
@@ -34,10 +35,9 @@ internal class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+        app.UseCustomExceptionHandler();
 
         app.UseHttpsRedirection();
-
-        app.UseAuthorization();
 
         app.MapControllers();
 

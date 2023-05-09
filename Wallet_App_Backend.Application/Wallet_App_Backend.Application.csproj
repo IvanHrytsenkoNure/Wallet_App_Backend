@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Common\Interfaces\" />
     <Folder Include="Core\Application\Commands\" />
-    <Folder Include="Core\Application\Queries\" />
     <Folder Include="Core\Services\" />
   </ItemGroup>
 
@@ -25,6 +24,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wallet_App_Backend.Domain\Wallet_App_Backend.Data.csproj" />
   </ItemGroup>
 
 </Project>
