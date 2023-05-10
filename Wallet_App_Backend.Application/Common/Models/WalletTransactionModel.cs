@@ -20,11 +20,20 @@ namespace Wallet_App_Backend.Application.Common.Models
         public DateTime TransactionDate { get; set; }
         public WalletTransactionStatus TransactionStatus { get; set; }
         public string TransactionIconPath { get; set; }
+        public string CreatedBy { get; set; }
+        public UserModel UserModel { get; set; }
+
 
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<WalletTransaction, WalletTransactionModel>();
+            profile.CreateMap<WalletTransaction, WalletTransactionModel>()
+                .ForMember(x=> x.UserModel, y=> y.MapFrom(z=> z.TransactionUser));
+            profile.CreateMap<WalletTransactionModel, WalletTransaction>()
+                .ForMember(x=> x.TransactionUser, y=> y.Ignore())
+                .ForMember(x=> x.TransactionUserId, y=> y.MapFrom(z=> z.UserModel.Id));
+
+
         }
     }
 }
