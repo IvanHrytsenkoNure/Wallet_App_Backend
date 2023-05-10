@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Wallet_App_Backend.Application.Common.Behaviors;
+using Wallet_App_Backend.Application.Core.Services;
+using Wallet_App_Backend.Application.Interfaces;
 
 namespace Wallet_App_Backend.Application
 {
@@ -18,6 +20,9 @@ namespace Wallet_App_Backend.Application
                 typeof(ValidationBehavior<,>));
             services
                 .AddValidatorsFromAssemblies(new[] { Assembly.GetExecutingAssembly() });
+
+            services.AddScoped<ISeasonsHelper, SeasonsHelper>();
+
 
             return services;
         }

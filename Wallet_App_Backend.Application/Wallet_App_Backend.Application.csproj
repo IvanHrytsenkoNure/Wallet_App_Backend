@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Common\Interfaces\" />
     <Folder Include="Core\Application\Commands\" />
-    <Folder Include="Core\Services\" />
   </ItemGroup>
 
   <ItemGroup>
