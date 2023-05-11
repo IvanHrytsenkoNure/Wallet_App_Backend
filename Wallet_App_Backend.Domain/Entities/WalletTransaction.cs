@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,9 @@ namespace Wallet_App_Backend.Data.Entities
 
         public Guid TransactionUserId { get; set; }
         public User TransactionUser { get; set; }
+
+        public Guid? AuthorizedUserId { get; set; }
+        public User? AuthorizedUser { get; set; }
 
     }
 }

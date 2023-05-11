@@ -33,6 +33,7 @@ namespace Wallet_App_Backend.Application.Core.Application.Commands.AddUserComman
 
             await _dbContext.Users.AddAsync(new User()
             {
+                Name = request.Name,
                 CreatedBy = creator.Id.ToString()
             }, cancellationToken);
 

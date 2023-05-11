@@ -26,6 +26,8 @@ namespace Wallet_App_Backend.Application.Core.Application.Queries.GetLatestTrans
         public async Task<GetLatestTransactionQueryResult> Handle(GetLatestTransactionQuery request, CancellationToken cancellationToken)
         {
             var transactionsList = await _dbContext.WalletTransactions.Where(x => x.TransactionUserId == request.UserId)
+                .Include(x=> x.AuthorizedUser)
+                .Include(x=> x.TransactionUser)
                 .ProjectTo<WalletTransactionModel>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

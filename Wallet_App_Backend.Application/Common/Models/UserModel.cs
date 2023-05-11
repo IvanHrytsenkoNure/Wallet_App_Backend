@@ -9,9 +9,10 @@ using Wallet_App_Backend.Data.Entities;
 
 namespace Wallet_App_Backend.Application.Common.Models
 {
-    public class UserModel : IMapWith<WalletTransaction>
+    public class UserModel : IMapWith<User>
     {
         public Guid Id { get; set; }
+        public string Name { get; set; }
 
         public void Mapping(Profile profile)
         {

@@ -10,5 +10,6 @@ namespace Wallet_App_Backend.Application.Core.Application.Commands.AddUserComman
     public class AddUserCommand : IRequest<bool>
     {
         public Guid CreatorId { get; set; }
+        public string Name { get; set; }
     }
 }
