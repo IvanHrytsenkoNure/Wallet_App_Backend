@@ -1,10 +1,4 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wallet_App_Backend.Application.Core.Application.Queries.GetLatestTransaction;
 using Wallet_App_Backend.Data;
 
 namespace Wallet_App_Backend.Application.Core.Application.Queries.GetCardBalanceInformation

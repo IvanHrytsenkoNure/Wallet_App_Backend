@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 using Wallet_App_Backend.Application.Core.Application.Queries.GetCardBalanceInformation;
-using Wallet_App_Backend.Application.Core.Application.Queries.GetLatestTransaction;
 using Wallet_App_Backend.Application.Core.Application.Queries.GetUserPoints;
-using Wallet_App_Backend.Data.Entities;
 
 namespace Wallet_App_Backend.API.Controllers
 {

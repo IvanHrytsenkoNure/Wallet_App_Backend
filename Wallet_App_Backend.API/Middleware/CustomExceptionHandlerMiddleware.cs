@@ -1,8 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Net;
+﻿using System.Net;
 using System.Text;
 using System.Text.Json;
-using FluentValidation;
 using Wallet_App_Backend.Application.Common.Exceptions;
 using ValidationException = FluentValidation.ValidationException;
 

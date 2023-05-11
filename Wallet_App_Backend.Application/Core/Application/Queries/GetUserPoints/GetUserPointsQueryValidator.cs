@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using Wallet_App_Backend.Application.Core.Application.Queries.GetCardBalanceInformation;
 using Wallet_App_Backend.Application.Interfaces;
 
 namespace Wallet_App_Backend.Application.Core.Application.Queries.GetUserPoints

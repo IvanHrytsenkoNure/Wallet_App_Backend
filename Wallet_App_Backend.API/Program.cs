@@ -1,6 +1,4 @@
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using Microsoft.EntityFrameworkCore;
 using Wallet_App_Backend.API.Middleware;
 using Wallet_App_Backend.Application;
 using Wallet_App_Backend.Application.Common.Mappings;
